@@ -1,0 +1,21 @@
+.site-wrapper
+  .site-wrapper-inner
+    .cover-container
+      .masthead.clearfix
+        .inner
+          %h3.masthead-brand= t('app_title')
+          %nav
+            %ul.nav.masthead-nav
+              %li.active
+                %a{:href => "#"}= t('home')
+              %li
+                = link_to t('.sign_in'), new_user_session_path
+      .inner.cover
+        %h1.cover-heading= t('app_title')
+        %p.lead= t('.description')
+        %p.lead
+          = link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-lg btn-default'
+      .mastfoot
+        .inner
+          %p
+            = t('.footer')
