@@ -1,5 +1,6 @@
 /* * Variables */
 
+$background_color: #453453;
 $link_color: #fff;
 
 /* Links */
@@ -14,13 +15,13 @@ a {
 /* Custom default button */
 
 .btn-default {
-  color: #333;
+  color: $background_color;
   text-shadow: none;
   /* Prevent inheritence from `body` */
   background-color: $link_color;
   border: 1px solid $link_color;
   &:hover, &:focus {
-    color: #333;
+    color: $background_color;
     text-shadow: none;
     /* Prevent inheritence from `body` */
     background-color: $link_color;
@@ -32,12 +33,12 @@ a {
 
 html {
   height: 100%;
-  background-color: #333;
+  background-color: $background_color;
 }
 
 body {
   height: 100%;
-  background-color: #333;
+  background-color: $background_color;
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
@@ -71,9 +72,7 @@ body {
   padding: 30px;
 }
 
-/*
- * Header
- */
+/* * Header */
 
 .masthead-brand {
   margin-top: 10px;
@@ -103,11 +102,11 @@ body {
     }
   }
   .active > a {
-    color: #fff;
-    border-bottom-color: #fff;
+    color: $link_color;
+    border-bottom-color: $link_color;
     &:hover, &:focus {
-      color: #fff;
-      border-bottom-color: #fff;
+      color: $link_color;
+      border-bottom-color: $link_color;
     }
   }
 }
@@ -121,9 +120,7 @@ body {
   }
 }
 
-/*
- * Cover
- */
+/* * Cover  */
 
 .cover {
   padding: 0 20px;
@@ -133,9 +130,7 @@ body {
   }
 }
 
-/*
- * Footer
- */
+/* * Footer */
 
 .mastfoot {
   color: #999;
@@ -143,9 +138,7 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
-/*
- * Affix and center
- */
+/* * Affix and center */
 
 @media (min-width: 768px) {
   /* Pull out the header and footer */
