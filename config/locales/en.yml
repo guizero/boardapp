@@ -1,5 +1,7 @@
 en:
+  # General
   app_title: 'Board App'
+  # Views
   static_pages:
     landing_page:
       description: 'This is the basic landing page for the experimental app created as a programming skill assessment for Rock Content. This landing page is temporary and will be replaced in the future.'
