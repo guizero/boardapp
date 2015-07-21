@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require turbolinks
 //= require routerrouter
 //= require router_rules
 //= require_tree ./application
