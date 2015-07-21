@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :firstname, :lastname
 
+  has_many :boards, dependent: :destroy
+
   def name
     "#{firstname} #{lastname}"
   end

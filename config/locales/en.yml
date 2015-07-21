@@ -1,6 +1,7 @@
 en:
   # General
   app_title: 'Board App'
+  boards: 'Boards'
   # Views
   static_pages:
     landing_page:
@@ -11,3 +12,7 @@ en:
   layouts:
     application:
       welcome: "Welcome, %{user_name}"
+  dashboard:
+    index:
+      my_boards: "My boards"
+      no_boards_yet: "You have no boards yet, do you want to create one?"

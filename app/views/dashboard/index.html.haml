@@ -1,0 +1,65 @@
+.main-container
+  .image-header
+    .overlay
+    .background
+    .text
+      .row
+        / Left Side
+        .col-lg-6.col-sm-6
+          .holder
+            .inner
+              %h3 Dashboard
+              %h4
+        / Right Side
+        .col-lg-2.col-sm-2
+          .holder
+            .header-widget
+              .icon
+        .col-lg-2.col-sm-2
+          .holder
+            .header-widget
+              .icon
+               
+        .col-lg-2.col-sm-2
+          .holder
+            .header-widget
+              .icon
+                %i.fa.fa-dribbble
+                = current_user.boards ? current_user.boards.count : 0
+              .description 
+                // 
+                = t('boards')
+  .container
+    .row
+      .col-lg-12
+        / Box Start
+        .box
+          / Title Bar Start
+          .box-title.red
+            %span= t('.my_boards')
+          / Content Start
+          .content
+            - if current_user.boards.exists?
+              %p You have boards
+            - else
+              %p
+                = t('.no_boards_yet')
+                / Button trigger modal
+              %p
+                %a.btn.btn-primary.btn-lg.create_board{"data-target" => "#myModal", "data-toggle" => "modal"}
+                  Create board
+
+/ Modal
+#myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4#myModalLabel.modal-title Modal Form      
+      = form_for @newboard, :html => { :multipart => true } do |f|
+        .modal-body
+          = f.label(:title)
+          = f.text_field(:title)
+        .modal-footer
+          = f.submit "Create!", class: "button btn btn-primary"
+           

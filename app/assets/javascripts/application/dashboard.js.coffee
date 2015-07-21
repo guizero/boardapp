@@ -80,6 +80,6 @@ class DashboardView
         false
       return
 
-if window.BoardApp == 'dashboard'
+if window.BoardApp.layout == 'dashboard'
   new DashboardView()
   

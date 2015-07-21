@@ -62,3 +62,7 @@ h5 {
 h6 {
   @extend %extend_1;
 }
+
+.modal {
+  z-index:1700;
+}
