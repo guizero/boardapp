@@ -1,4 +1,4 @@
-.main-container
+.main-container{"ng-app": "app.boardApp", "ng-controller": "BoardCtrl" }
   .container
     .row
       .col-lg-12
@@ -6,7 +6,9 @@
         .box
           / Content Start
           .content
-            %h3=@board.title
+            %h3
+              =@board.title
+              {{ exampleValue }}
     .row
       .col-lg-12.board
         .row

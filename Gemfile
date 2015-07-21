@@ -36,6 +36,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-fontawesome'
   gem 'rails-assets-routerrouter'
+  gem 'rails-assets-angular'
 end
 
 # User authentication
@@ -46,6 +47,9 @@ gem 'haml', '~> 4.0.5'
 
 # Google fonts
 gem 'google-webfonts'
+
+# Angular templates on asset pipeline
+gem 'angular-rails-templates'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
