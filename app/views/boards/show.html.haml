@@ -8,39 +8,16 @@
           .content
             %h3
               =@board.title
-              {{ exampleValue }}
-    .row
+    .row.boardAngular
       .col-lg-12.board
         .row
-          .col-lg-3.col-md-6.col-sm-6
+          .col-lg-3.col-md-6.col-sm-6{"ng-repeat" => "(listName, list) in models.lists"}
             / Widget Box Start
             .box
-              .box-title.red To-do
+              .box-title{class: "{{list.class}}"} {{list.name}}
               .content
-                %div
-                 
-            / Widget Box End
-          .col-lg-3.col-md-6.col-sm-6
-            / Widget Box Start
-            .box
-              .box-title.light-blue In Progress
-              .content
-                %div
-                  
-            / Widget Box End
-          .col-lg-3.col-md-6.col-sm-6
-            / Widget Box Start
-            .box
-              .box-title.yellow To Verify
-              .content
-                %div
-                 
-            / Widget Box End
-          .col-lg-3.col-md-6.col-sm-6
-            / Widget Box Start
-            .box
-              .box-title.green Done
-              .content
-                %div
-                 
-            / Widget Box End
+                %ul{"dnd-list" => "list.items"}
+                  %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "models.selected = item", "ng-class" => "{'selected': models.selected === item}", "ng-repeat" => "item in list.items"}
+                    {{item.label}}
+                  %li
+                    Add task

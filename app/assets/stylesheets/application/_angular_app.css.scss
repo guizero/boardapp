@@ -1,0 +1,43 @@
+//colors
+$color_alto_approx: #ddd;
+$white: #fff;
+$color_willow_brook_approx: #dff0d8;
+$color_killarney_approx: #3c763d;
+
+.boardAngular ul[dnd-list] {
+  position: relative;
+  min-height: 42px;
+  padding-left: 0;
+  .dndDraggingSource {
+    display: none;
+  }
+  .dndPlaceholder {
+    display: block;
+    background-color: $color_alto_approx;
+    min-height: 42px;
+  }
+  li {
+    background-color: $white;
+    border: 1px solid $color_alto_approx;
+    //Instead of the line below you could use @include border-top-right-radius($radius)
+    border-top-right-radius: 4px;
+    //Instead of the line below you could use @include border-top-left-radius($radius)
+    border-top-left-radius: 4px;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    &.selected {
+      background-color: $color_willow_brook_approx;
+      color: $color_killarney_approx;
+    }
+  }
+  > li {
+    position: relative;
+  }  
+}
+
+.boardAngular {
+  .content {
+    padding:0;
+  }
+}

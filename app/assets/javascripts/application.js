@@ -25,6 +25,7 @@
 //= require_tree ./boards/models
 //= require_tree ./boards/services
 //= require_tree ./boards/controllers
+//= require angular-drag-and-drop-lists
 
 // Router for specific JS
 //= require routerrouter
