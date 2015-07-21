@@ -36,6 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Rails assets configuration - https://rails-assets.org
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
+  gem 'rails-assets-fontawesome'
 end
 
 # User authentication
@@ -43,6 +44,9 @@ gem 'devise'
 
 # HTML markup
 gem 'haml', '~> 4.0.5'
+
+# Google fonts
+gem 'google-webfonts'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
