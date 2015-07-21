@@ -37,17 +37,31 @@
           / Title Bar Start
           .box-title.red
             %span= t('.my_boards')
+            %a.btn.btn-lg.create_board{"data-target" => "#myModal", "data-toggle" => "modal"}
+              %i.fa.fa-plus
+                Create board 
           / Content Start
           .content
             - if current_user.boards.exists?
-              %p You have boards
+              .row
+                .col-lg-12
+                  - current_user.boards.each do |board|
+                    .col-lg-3.col-md-6.col-sm-6
+                      .widget-box
+                        =link_to board_path(board) do                
+                          .text
+                            %div.text-center            
+                              %strong= board.title
+                              %p Privado
+                        .counter-board.red 5
+                        .counter-board.yellow 7
+                        .counter-board.blue 2
+                        .counter-board.green 22
+                         
             - else
               %p
                 = t('.no_boards_yet')
                 / Button trigger modal
-              %p
-                %a.btn.btn-primary.btn-lg.create_board{"data-target" => "#myModal", "data-toggle" => "modal"}
-                  Create board
 
 / Modal
 #myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}

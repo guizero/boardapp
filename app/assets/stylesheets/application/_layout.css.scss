@@ -657,7 +657,6 @@ input:focus {
   > a {
     float: right;
     color: #252b33;
-    opacity: 0.3;
     font-size: 16px;
     padding-top: 5px;
     &:hover {
@@ -714,19 +713,44 @@ input:focus {
       background-color: #fdc554;
     }
   }
+  .counter-board {
+    width: 25%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: bold;
+    float:left;
+    &.green {
+      background-color: #a5c562;
+    }
+    &.red {
+      background-color: #ff503f;
+    }
+    &.blue {
+      background-color: #91dff3;
+    }
+    &.yellow {
+      background-color: #fdc554;
+    }
+  }
   .text {
     display: inline-block;
+    width: 100%;
     max-width: 230px;
     height: 100px;
     vertical-align: top;
     line-height: 100px;
     padding: 0px 15px;
+    background-color: #DCDCDC;
     div {
       display: inline-block;
       width: 100%;
       vertical-align: middle;
       line-height: normal;
-      font-size: 20px;
+      font-size: 16px;
       color: #8e9aa4;
       font-weight: 300;
       span {
