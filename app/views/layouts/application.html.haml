@@ -1,0 +1,65 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title BoardApp - Experimental
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    / Google Fonts
+    = google_webfonts_link_tag :Pacifico,:Lato => [400,100]
+
+  %body.no-margin-top
+    / Left Sidebar Start
+    .sidebar.sidebar-left
+      / Logo Start
+      .logo-container
+        %a{:href => "index.html"}
+          %h1 BoardApp
+      / Logo End
+      / User Profile Start
+      .sidebar-user-profile
+        .avatar
+          = image_tag 'no_profile_pic.png', alt: current_user.name, class: 'sidebar-profile-image'
+          
+        .ul-icons
+          %span.user-info=current_user.name
+          %ul.icon-list
+            %li
+              = link_to destroy_user_session_path, :method => :delete do
+                %i.fa.fa-power-off
+            %li
+              %a{:href => "profile.html"}
+                %i.fa.fa-cog
+      / User Profile End
+      / Menu Start
+      %ul.main-menu
+        %li
+          %a{:href => "index.html"}
+            %i.fa.fa-home
+            %span Dashboard
+    / Left Sidebar End
+    / Top Content Bar Start
+    .top-bar
+      .main-container
+        .container
+          .row
+            .col-lg-6.col-sm-6.hidden-xs
+              %ul.left-icons.icon-list
+                %li
+                  %a.sidebar-collapse{:href => "#"}
+                    %i.fa.fa-dedent
+            .col-lg-6.col-sm-6.col-xs-6
+              %ul.right-icons.icon-list
+                %li
+                  %a{:href => "search.html"}
+                    %i.fa.fa-search
+                %li
+                  = t('layouts.application.welcome', user_name: current_user.name)
+    / Top Content Bar End
+    / Content Start
+    .content
+      = yield
+
+= javascript_include_tag 'application', 'data-turbolinks-track' => true
