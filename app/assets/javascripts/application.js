@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
-//= require_tree .
+//= require routerrouter
+//= require router_rules
+//= require_tree ./application

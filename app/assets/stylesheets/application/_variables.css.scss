@@ -1,0 +1,61 @@
+/* COLORS.
+========================================================================== */
+$color_main_dark: #252b33;
+$color_link_text: #8e9aa4;
+$color_link_hover: #25323f;
+$color_raven_approx: #6c7a8c;
+$white: #fff;
+$color_mercury_approx: #e6e6e6;
+$color_sunset_orange_approx: #ff503f;
+$black_20: rgba(0, 0, 0, 0.2);
+$color_mirage_approx: #191d23;
+$color_celery_approx: #a5c562;
+$color_anakiwa_approx: #91dff3;
+$color_saffron_mango_approx: #fdc554;
+$mercury: #e5e5e5;
+$color_charade_90_approx: rgba(37, 43, 51, 0.9);
+
+/* FONTS
+========================================================================== */
+$font_0: Lato;
+$font_1: sans-serif;
+$font_2: FontAwesome;
+$font_3: Pacifico;
+$font_4: cursive;
+
+/* URLs
+========================================================================== */
+$url_0: url(../../_demo/header-image.jpg);
+
+/* Extend Elements
+========================================================================== */
+//original selectors
+//h1, h2, h3, h4, h5, h6
+%extend_1 {
+  margin: 0;
+  font-weight: 300;
+  color: $color_link_text;
+  padding-bottom: 15px;
+}
+
+//original selectors
+//.inbox-quota .progress-bar, .sidebar .progress-bar
+%extend_2 {
+  margin: 10px 0;
+  background-color: $color_mirage_approx;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 20px;
+  overflow: hidden;
+  height: 5px;
+  width: 100%;
+}
+
+//original selectors
+//.inbox-quota .progress-bar .progress, .sidebar .progress-bar .progress
+%extend_3 {
+  height: 5px;
+  width: 60%;
+  background-color: $color_celery_approx;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 20px;
+}

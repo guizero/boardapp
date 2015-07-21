@@ -11,6 +11,10 @@
  * file per style scope.
  *
  *= require bootstrap
- *= require_tree .
+ *= require fontawesome
  *= require_self
  */
+
+@import 'application/variables';
+@import 'application/overrides';
+@import 'application/layout';

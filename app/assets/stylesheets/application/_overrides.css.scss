@@ -1,0 +1,64 @@
+body {
+  height: 100%;
+  background-color: $color_main_dark;
+  font-size: 13px;
+  font-family: $font_0, $font_1;
+  position: relative;
+  &.no-margin-top > .content {
+    margin-top: 0;
+  }
+  > .content {
+    margin-top: 20px;
+  }
+}
+html {
+  min-height: 100%;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: $color_link_text;
+  &:hover {
+    text-decoration: none;
+    color: $color_link_hover;
+  }
+  &:focus {
+    outline: none;
+  }
+  i {
+    font-size: 18px;
+  }
+}
+strong {
+  color: $color_link_text;
+}
+textarea {
+  resize: none;
+  width: 100%;
+  height: 120px;
+  //Instead of the line below you could use @include box-sizing($bs)
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid $color_main_dark;
+}
+h1 {
+  @extend %extend_1;
+}
+h2 {
+  @extend %extend_1;
+}
+h3 {
+  @extend %extend_1;
+}
+h4 {
+  @extend %extend_1;
+}
+h5 {
+  @extend %extend_1;
+}
+h6 {
+  @extend %extend_1;
+}
