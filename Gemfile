@@ -37,6 +37,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-fontawesome'
+  gem 'rails-assets-routerrouter'
 end
 
 # User authentication

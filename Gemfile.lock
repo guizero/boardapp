@@ -123,6 +123,7 @@ GEM
       rails-assets-jquery (>= 1.9.1)
     rails-assets-fontawesome (4.3.0)
     rails-assets-jquery (2.1.4)
+    rails-assets-routerrouter (1.0.1)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.6)
@@ -220,6 +221,7 @@ DEPENDENCIES
   rails (= 4.2.3)
   rails-assets-bootstrap!
   rails-assets-fontawesome!
+  rails-assets-routerrouter!
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
