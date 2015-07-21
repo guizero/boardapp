@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   validates_presence_of :firstname, :lastname
+
+  def name
+    "#{firstname} #{lastname}"
+  end
 end

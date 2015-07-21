@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   
   root 'static_pages#landing_page'
 
-  devise_for :users
+  devise_for :users, controllers: {registrations: "registrations"}
+
+  get 'dashboard' => 'dashboard#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
