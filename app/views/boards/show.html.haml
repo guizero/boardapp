@@ -4,10 +4,14 @@
       .col-lg-12
         / Box Start
         .box
-          / Content Start
-          .content
-            %h3
+          .box-title.gray
+            %span
               =@board.title
+            = link_to board_path(@board), method: :delete do
+              %i.fa.fa-trash-o
+          .content
+            =@board.private
+            
     .row.boardAngular
       .col-lg-12.board
         .row

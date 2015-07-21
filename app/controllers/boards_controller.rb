@@ -18,6 +18,17 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
   end
 
+  def destroy
+    @board = Board.find(params[:id])
+    respond_to do |format|      
+      if @board.destroy
+        format.html { redirect_to(dashboard_path, :notice => 'Board successfully deleted') }
+      else
+        format.html { render action: "show" }
+      end
+    end
+  end
+
   private
 
   def board_params

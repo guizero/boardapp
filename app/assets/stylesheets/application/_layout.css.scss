@@ -615,8 +615,9 @@ input:focus {
     padding-bottom: 13px;
   }
   &.gray {
-    background-color: #252b33;
+    background-color: #8e9aa4;
     padding-bottom: 13px;
+    color: $white;
   }
   &.light-blue {
     background-color: #91dff3;

@@ -15,7 +15,7 @@
     .sidebar.sidebar-left
       / Logo Start
       .logo-container
-        %a{:href => "index.html"}
+        = link_to dashboard_path do
           %h1 BoardApp
       / Logo End
       / User Profile Start
@@ -36,7 +36,7 @@
       / Menu Start
       %ul.main-menu
         %li
-          %a{:href => "index.html"}
+          = link_to dashboard_path do
             %i.fa.fa-home
             %span Dashboard
     / Left Sidebar End
