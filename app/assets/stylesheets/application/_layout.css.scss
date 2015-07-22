@@ -769,3 +769,51 @@ input:focus {
     }    
   }
 }
+
+/***** Notifications *****/
+
+.notification {
+  border-radius: 3px;
+  border: 0px solid;
+  background-color: #D9EDF7;
+  border-color: #BCE8F1;
+  color: #333333;
+  padding: 20px 20px;
+  margin-bottom: 10px;
+  .close {
+    line-height: 20px;
+  }
+  strong {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    padding-right: 10px;
+  }
+}
+
+.notification-success {
+  strong {
+    color: #3C763D;
+  }
+  background-color: #DFF0D8;
+  border-color: #D6E9C6;
+  color: #3C763D;
+}
+
+.notification-warning {
+  strong {
+    color: #8A6D3B;
+  }
+  background-color: #FCF8E3;
+  border-color: #FAEBCC;
+  color: #8A6D3B;
+}
+
+.notification-error {
+  strong {
+    color: #A94442;
+  }
+  background-color: #F2DEDE;
+  border-color: #EBCCD1;
+  color: #A94442;
+}

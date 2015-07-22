@@ -28,8 +28,12 @@
                 = current_user.boards ? current_user.boards.count : 0
               .description 
                 // 
-                = t('boards')
+                = t('boards')            
   .container
+    .row
+      .col-lg-12
+        .content
+          = flash_messages
     .row
       .col-lg-12
         / Box Start

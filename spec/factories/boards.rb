@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :board do
-    title "MyString"
-private false
+    title "My board"
+    private true
   end
-
 end

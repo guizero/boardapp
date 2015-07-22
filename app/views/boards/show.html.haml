@@ -7,7 +7,7 @@
           .box-title.gray
             %span
               =@board.title
-            = link_to board_path(@board), method: :delete do
+            = link_to board_path(@board), method: :delete, id: 'delete-board' do
               %i.fa.fa-trash-o
           .content
             =@board.private
