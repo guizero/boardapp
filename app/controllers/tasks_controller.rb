@@ -24,6 +24,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    respond_to do |format|   
+      if @task.destroy
+        format.json {render json: @task}
+      else
+        format.json {render json: @task.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
   private
 
   def task_params

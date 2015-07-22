@@ -32,8 +32,11 @@ angular.module('app.boardApp').controller "BoardCtrl", [
       )
       item
 
-    $scope.removeFromlist = (list, index) ->
-      console.log list
-      console.log index
-      list.items.splice(index, 1)
+    $scope.removeFromlist = (list, index, item) ->
+      $http.delete('/tasks/'+item.id+'.json').success((data, status, headers, config) ->
+        list.items.splice(index, 1)
+      ).error((data) ->
+        return false
+      )
+      
 ]
