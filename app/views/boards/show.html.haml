@@ -1,4 +1,4 @@
-.main-container{"ng-app": "app.boardApp", "ng-controller": "BoardCtrl" }
+.main-container{"ng-app": "app.boardApp", "ng-controller": "BoardCtrl", "data-boardid": @board.id }
   .container
     .row
       .col-lg-12
@@ -6,13 +6,9 @@
         .box
           .box-title.gray
             %span
-              =@board.title 
-              {{models.lists[0].items}}
+              =@board.title
             = link_to board_path(@board), method: :delete, id: 'delete-board' do
-              %i.fa.fa-trash-o
-          .content
-            =@board.private
-            
+              %i.fa.fa-trash-o         
     .row.boardAngular
       .col-lg-12.board
         .row
@@ -26,5 +22,20 @@
                   %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "models.selected = item", "ng-class" => "{'selected': models.selected === item}", "ng-repeat" => "item in list.items"}
                     {{item.title}}
               .add-task.text-center
-                %i.fa.fa-plus
-                Add task
+                %a{"data-target" => "#myModal", "data-toggle" => "modal", "ng-click" => "models.addlist = list;task.status = listName;task.board_id = board"}
+                  %i.fa.fa-plus
+                  Add task 
+  #myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+          %h4#myModalLabel.modal-title Add task to {{models.addlist.name}} list
+          %form.simple-form{:novalidate => ""}
+            .modal-body      
+              Title:
+              %input{"ng-model" => "task.title", :type => "text", :id => "title"}          
+            .modal-footer
+              %input{"ng-click" => "createTask(task)", :type => "submit", :value => "Save"}/
+            
+     
