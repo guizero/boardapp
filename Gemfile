@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.2"
+
 # Bundle should be stated here in order to rails-assets to work
 gem 'bundler', '>= 1.8.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -53,6 +55,11 @@ gem 'angular-rails-templates'
 
 # Organize lists by priority
 gem 'acts_as_list'
+
+# Heroku to work properly
+gem 'rails_12factor', group: :production
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
