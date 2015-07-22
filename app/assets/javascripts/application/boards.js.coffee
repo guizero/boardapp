@@ -7,7 +7,6 @@ class BoardsView
 
       # Autofocus on the input for easy of use
       $('#myModal').on 'shown.bs.modal', ->
-        $('#title').val('')
         $('#title').focus()
         return
       return

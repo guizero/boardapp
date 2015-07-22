@@ -22,7 +22,7 @@
                   %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "models.selected = item", "ng-class" => "{'selected': models.selected === item}", "ng-repeat" => "item in list.items"}
                     {{item.title}}
               .add-task.text-center
-                %a{"data-target" => "#myModal", "data-toggle" => "modal", "ng-click" => "models.addlist = list;task.status = listName;task.board_id = board"}
+                %a{"data-target" => "#myModal", "data-toggle" => "modal", "ng-click" => "models.addlist = list;task.status = listName;task.board_id = board; task.title=''"}
                   %i.fa.fa-plus
                   Add task 
   #myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
