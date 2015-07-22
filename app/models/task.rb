@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
 
   validates_presence_of :title, :status, :board
 
-  scope :by_status, -> (status) {where(status: status)}
+  scope :by_status, -> (status) {where(status: status).select(:id, :status, :title)}
   ### Statuses are:
   ### 0 - To-do, 1 - In progress, 2 - In verification, 3- Done
 

@@ -6,7 +6,8 @@
         .box
           .box-title.gray
             %span
-              =@board.title
+              =@board.title 
+              {{models.lists[0].items}}
             = link_to board_path(@board), method: :delete, id: 'delete-board' do
               %i.fa.fa-trash-o
           .content
@@ -23,7 +24,7 @@
               .content
                 %ul{"dnd-list" => "list.items"}
                   %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "models.selected = item", "ng-class" => "{'selected': models.selected === item}", "ng-repeat" => "item in list.items"}
-                    {{item.label}}
+                    {{item.title}}
               .add-task.text-center
                 %i.fa.fa-plus
                 Add task
