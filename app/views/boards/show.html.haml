@@ -18,10 +18,12 @@
           .col-lg-3.col-md-6.col-sm-6{"ng-repeat" => "(listName, list) in models.lists"}
             / Widget Box Start
             .box
-              .box-title{class: "{{list.class}}"} {{list.name}}
+              .box-title{class: "{{list.class}}"} 
+                %span {{list.name}}
               .content
                 %ul{"dnd-list" => "list.items"}
                   %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "models.selected = item", "ng-class" => "{'selected': models.selected === item}", "ng-repeat" => "item in list.items"}
                     {{item.label}}
-                  %li
-                    Add task
+              .add-task.text-center
+                %i.fa.fa-plus
+                Add task

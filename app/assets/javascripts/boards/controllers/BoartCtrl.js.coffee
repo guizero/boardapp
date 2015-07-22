@@ -5,19 +5,19 @@ angular.module('app.boardApp').controller("BoardCtrl", [
     $scope.models =
       selected: null
       lists:
-        'A':
+        '0':
           'name': 'To do'
           'class': 'red'
           'items': []
-        'B':
+        '1':
           'name': 'In progress'
           'class': 'light-blue'
           'items': []
-        'C':
+        '2':
           'name': 'In verification'
           'class': 'yellow'
           'items': []
-        'D':
+        '3':
           'name': 'Done'
           'class': 'green'
           'items': []
@@ -25,10 +25,10 @@ angular.module('app.boardApp').controller("BoardCtrl", [
     # Generate initial model
     i = 1
     while i <= 3
-      $scope.models.lists.A.items.push label: 'Item A' + i
-      $scope.models.lists.B.items.push label: 'Item B' + i
-      $scope.models.lists.C.items.push label: 'Item C' + i
-      $scope.models.lists.D.items.push label: 'Item D' + i
+      $scope.models.lists[0].items.push label: 'Item A' + i
+      $scope.models.lists[1].items.push label: 'Item B' + i
+      $scope.models.lists[2].items.push label: 'Item C' + i
+      $scope.models.lists[3].items.push label: 'Item D' + i
       ++i
 
     # Model to JSON for demo purpose

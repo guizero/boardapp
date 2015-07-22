@@ -666,7 +666,7 @@ input:focus {
   }
 }
 
-.box > .content {
+.box > .content, .add-task {
   padding: 15px 20px;
   background: #ffffff;
   border-radius: 0px 0px 2px 2px;
@@ -759,14 +759,6 @@ input:focus {
         font-size: 15px;
       }
     }
-  }
-}
-
-.board {
-  .box {
-    .content {
-      min-height: 300px;
-    }    
   }
 }
 

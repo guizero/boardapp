@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_board, except: ['create']
 
   def create
     @board = Board.new(board_params)
@@ -15,11 +16,9 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find(params[:id])
   end
 
   def destroy
-    @board = Board.find(params[:id])
     respond_to do |format|      
       if @board.destroy
         format.html { redirect_to(dashboard_path, flash: { :success => 'Board successfully deleted' } ) }
@@ -29,7 +28,14 @@ class BoardsController < ApplicationController
     end
   end
 
+  def retrieve_tasks
+  end
+
   private
+
+  def set_board
+    @board = Board.find(params[:id])
+  end
 
   def board_params
     params.require(:board).permit(:title, :private, :user_id)

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root 'static_pages#landing_page'
 
-  devise_for :users, controllers: {registrations: "registrations"}
+  devise_for :users, controllers: {registrations: "registrations", sessions: "sessions"}
 
   get 'dashboard' => 'dashboard#index'
 
