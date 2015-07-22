@@ -51,6 +51,9 @@ gem 'google-webfonts'
 # Angular templates on asset pipeline
 gem 'angular-rails-templates'
 
+# Organize lists by priority
+gem 'acts_as_list'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

@@ -23,8 +23,10 @@ angular.module('app.boardApp').controller "BoardCtrl", ($scope, $http)->
       )
 
     $scope.dropCallback = (index, item, listName) ->
-      $http.put('/tasks/'+item.id+'.json', {status: listName}).success((data, status, headers, config) ->
-        console.log data
+      console.log index
+      console.log item
+      console.log listName
+      $http.put('/tasks/'+item.id+'.json', {status: listName, index: index}).success((data, status, headers, config) ->
       ).error((data) ->
         return false
       )

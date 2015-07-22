@@ -17,6 +17,7 @@ class TasksController < ApplicationController
     @task.status = params[:status]
     respond_to do |format|   
       if @task.save
+        @task.set_position(params[:index])
         format.json {render json: @task}
       else
         format.json {render json: @task.errors, status: :unprocessable_entity}

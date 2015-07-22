@@ -9,7 +9,7 @@ $color_killarney_approx: #3c763d;
   min-height: 42px;
   padding-left: 0;
   .dndDraggingSource {
-    display: none;
+    opacity: 0.5
   }
   .dndPlaceholder {
     display: block;
