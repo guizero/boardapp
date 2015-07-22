@@ -1,4 +1,7 @@
-angular.module('app.boardApp').controller "BoardCtrl", ($scope, $http)->
+angular.module('app.boardApp').controller "BoardCtrl", [
+  '$scope'
+  '$http'
+  ($scope, $http) ->
     $http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
 
     # The selected item will be stored in this var
@@ -33,3 +36,4 @@ angular.module('app.boardApp').controller "BoardCtrl", ($scope, $http)->
       console.log list
       console.log index
       list.items.splice(index, 1)
+]
