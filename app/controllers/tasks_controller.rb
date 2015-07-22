@@ -15,7 +15,7 @@ class TasksController < ApplicationController
   def update
     @task.status = params[:status]
     respond_to do |format|   
-      if @task.board.user
+      if @task.save
         @task.set_position(params[:index])
         format.json {render json: @task}
       else

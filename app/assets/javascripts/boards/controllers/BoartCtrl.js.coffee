@@ -28,3 +28,8 @@ angular.module('app.boardApp').controller "BoardCtrl", ($scope, $http)->
         return false
       )
       item
+
+    $scope.removeFromlist = (list, index) ->
+      console.log list
+      console.log index
+      list.items.splice(index, 1)

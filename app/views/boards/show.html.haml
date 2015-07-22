@@ -21,10 +21,12 @@
                 %ul{"dnd-list" => "list.items", "dnd-drop"=>"dropCallback(index, item, listName)"}
                   %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "models.selected = item", "ng-class" => "{'selected': models.selected === item}", "ng-repeat" => "item in list.items"}
                     {{item.title}}
+                    %a{href: "javascript:void(0)", "ng-click": "removeFromlist(list, $index)"}
+                      Remover
               .add-task.text-center
                 %a{"data-target" => "#myModal", "data-toggle" => "modal", "ng-click" => "models.addlist = list;task.status = listName;task.board_id = board; task.title=''"}
                   %i.fa.fa-plus
-                  Add task 
+                  Add tasks
   #myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
     .modal-dialog
       .modal-content
