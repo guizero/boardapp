@@ -21,3 +21,11 @@ angular.module('app.boardApp').controller "BoardCtrl", ($scope, $http)->
         $('#myModal').modal("toggle")
         return
       )
+
+    $scope.dropCallback = (index, item, listName) ->
+      $http.put('/tasks/'+item.id+'.json', {status: listName}).success((data, status, headers, config) ->
+        console.log data
+      ).error((data) ->
+        return false
+      )
+      item

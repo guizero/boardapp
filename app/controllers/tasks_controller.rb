@@ -12,6 +12,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def update
+    @task = Task.find(params[:id])
+    @task.status = params[:status]
+    respond_to do |format|   
+      if @task.save
+        format.json {render json: @task}
+      else
+        format.json {render json: @task.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
   private
 
   def task_params

@@ -18,7 +18,7 @@
               .box-title{class: "{{list.class}}"} 
                 %span {{list.name}}
               .content
-                %ul{"dnd-list" => "list.items"}
+                %ul{"dnd-list" => "list.items", "dnd-drop"=>"dropCallback(index, item, listName)"}
                   %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "models.selected = item", "ng-class" => "{'selected': models.selected === item}", "ng-repeat" => "item in list.items"}
                     {{item.title}}
               .add-task.text-center
