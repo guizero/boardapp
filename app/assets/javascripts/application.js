@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-toggle/bootstrap-toggle.min
 
 // Angular are used in boards
 //= require angular

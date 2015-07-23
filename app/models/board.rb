@@ -8,7 +8,7 @@ class Board < ActiveRecord::Base
     tasks = {}
     [0,1,2,3].each do |status|
       tasks[status] = {}
-      tasks[status]['name'] = ['To-do', 'In progress', 'In verification', 'Done'][status]
+      tasks[status]['name'] = ['To-do', 'In progress', 'To verify', 'Done'][status]
       tasks[status]['class'] = %w(red light-blue yellow green)[status]
       tasks[status]['items'] = self.tasks.by_status(status)
     end

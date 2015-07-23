@@ -42,6 +42,6 @@ class TasksController < ApplicationController
 
   def require_permission
     @task = Task.find_by_id(params[:id]) ? Task.find_by_id(params[:id]) : Task.new(task_params)
-    redirect_to(root_url, :notice => 'User cannot access this task') unless @task.board.user == current_user
+    render json: 'User cannot access this task' unless @task.board.user == current_user
   end
 end

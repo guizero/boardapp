@@ -128,6 +128,7 @@ GEM
     rails-assets-angular (1.4.3)
     rails-assets-bootstrap (3.3.5)
       rails-assets-jquery (>= 1.9.1)
+    rails-assets-bootstrap-toggle (2.2.0)
     rails-assets-fontawesome (4.3.0)
     rails-assets-jquery (2.1.4)
     rails-assets-routerrouter (1.0.1)
@@ -233,6 +234,7 @@ DEPENDENCIES
   rails (= 4.2.3)
   rails-assets-angular!
   rails-assets-bootstrap!
+  rails-assets-bootstrap-toggle!
   rails-assets-fontawesome!
   rails-assets-routerrouter!
   rails_12factor

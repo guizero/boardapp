@@ -39,6 +39,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-fontawesome'
   gem 'rails-assets-routerrouter'
   gem 'rails-assets-angular'
+  gem 'rails-assets-bootstrap-toggle'
 end
 
 # User authentication

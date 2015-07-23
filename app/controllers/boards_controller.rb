@@ -28,13 +28,11 @@ class BoardsController < ApplicationController
     end
   end
 
-  def retrieve_tasks
-  end
-
   private
 
   def set_board
-    @board = Board.find(params[:id])
+    @board = current_user.boards.find_by_id(params[:id])
+    redirect_to(dashboard_path, :notice => 'The board you are looking for was not found') unless @board
   end
 
   def board_params
