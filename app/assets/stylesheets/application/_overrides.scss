@@ -66,3 +66,9 @@ h6 {
 .modal {
   z-index:1700;
 }
+
+// Xeditable
+.editable-click, a.editable-click {
+  color: $white;
+  border-bottom: 0;
+}

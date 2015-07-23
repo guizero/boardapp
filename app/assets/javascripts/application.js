@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap-toggle/bootstrap-toggle.min
 
 // Angular are used in boards
 //= require angular
@@ -22,6 +21,8 @@
 //= require_tree ./boards/modules
 //= require_tree ./boards/controllers
 //= require angular-drag-and-drop-lists
+//= require angular-toggle-switch/angular-toggle-switch
+//= require angular-xeditable
 
 // Router for specific JS
 //= require routerrouter

@@ -4,10 +4,13 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: "registrations", sessions: "sessions"}
 
-  get 'dashboard' => 'dashboard#index'
-
-  resources :boards
-  resources :tasks
+  authenticate :user do
+    get 'dashboard' => 'dashboard#index'
+    resources :boards, only: ['create', 'update', 'destroy']
+    resources :tasks
+  end
+  resources :boards, only: ['show']
+  get 'boards/view/:id' => 'boards#external'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

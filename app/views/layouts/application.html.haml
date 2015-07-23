@@ -11,7 +11,6 @@
     = google_webfonts_link_tag :Pacifico,:Lato => [400,100]
 
   %body.no-margin-top
-    / Left Sidebar Start
     .sidebar.sidebar-left
       / Logo Start
       .logo-container
@@ -19,27 +18,28 @@
           %h1 BoardApp
       / Logo End
       / User Profile Start
-      .sidebar-user-profile
-        .avatar
-          = image_tag 'no_profile_pic.png', alt: current_user.name, class: 'sidebar-profile-image'
-          
-        .ul-icons
-          %span.user-info=current_user.name
-          %ul.icon-list
-            %li
-              = link_to destroy_user_session_path, :method => :delete do
-                %i.fa.fa-power-off
-            %li
-              %a{:href => "profile.html"}
-                %i.fa.fa-cog
-      / User Profile End
-      / Menu Start
-      %ul.main-menu
-        %li
-          = link_to dashboard_path do
-            %i.fa.fa-home
-            %span Dashboard
-    / Left Sidebar End
+      - if current_user
+        .sidebar-user-profile
+          .avatar
+            = image_tag 'no_profile_pic.png', alt: current_user.name, class: 'sidebar-profile-image'
+            
+          .ul-icons
+            %span.user-info=current_user.name
+            %ul.icon-list
+              %li
+                = link_to destroy_user_session_path, :method => :delete do
+                  %i.fa.fa-power-off
+              %li
+                %a{:href => "profile.html"}
+                  %i.fa.fa-cog
+        / User Profile End
+        / Menu Start
+        %ul.main-menu
+          %li
+            = link_to dashboard_path do
+              %i.fa.fa-home
+              %span Dashboard
+      / Left Sidebar End
     / Top Content Bar Start
     .top-bar
       .main-container
@@ -53,10 +53,7 @@
             .col-lg-6.col-sm-6.col-xs-6
               %ul.right-icons.icon-list
                 %li
-                  %a{:href => "search.html"}
-                    %i.fa.fa-search
-                %li
-                  = t('layouts.application.welcome', user_name: current_user.name)
+                  = current_user ? t('layouts.application.welcome', user_name: current_user.name) : t('layouts.application.create_your_boards_too!')
     / Top Content Bar End
     / Content Start
     .content

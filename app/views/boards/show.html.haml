@@ -6,29 +6,33 @@
         .box
           .box-title.gray
             %span
-              =@board.title
-            = link_to board_path(@board), method: :delete, id: 'delete-board' do
-              %i.fa.fa-trash-o
-          .content
-            Privado ou não     
+              %a{"editable-text" => "board.title", :href => "javascript:void(0)", "onaftersave" =>"updateBoard()"} {{board.title}}
+            - if current_user
+              = link_to board_path(@board), method: :delete, id: 'delete-board' do
+                %i.fa.fa-trash-o
+          - if current_user
+            .content
+              %toggle-switch.switch-small{"ng-model" => "board.private", "off-label" => "Public", "on-label" => "Private", "ng-change" => "updateBoard()"}
     .row.boardAngular
       .col-lg-12.board
         .row
-          .col-lg-3.col-md-6.col-sm-6{"ng-repeat" => "(listName, list) in models.lists"}
+          .col-lg-3.col-md-6.col-sm-6{"ng-repeat" => "(listName, list) in board.tasks"}
             / Widget Box Start
             .box
               .box-title{class: "{{list.class}}"} 
                 %span {{list.name}}
               .content
-                %ul{"dnd-list" => "list.items", "dnd-drop"=>"dropCallback(index, item, listName)"}
-                  %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "models.selected = item", "ng-class" => "{'selected': models.selected === item}", "ng-repeat" => "item in list.items"}
+                %ul{"dnd-list" => "list.items", "dnd-drop"=>"dropCallback(index, item, listName)", "dnd-disable-if" => current_user ? '' : 'true === true'}
+                  %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "board.selected = item", "ng-class" => "{'selected': board.selected === item}", "ng-repeat" => "item in list.items"}
                     {{item.title}}
-                    %a{href: "javascript:void(0)", "ng-click": "removeFromlist(list, $index, item)"}
+                    - if current_user
+                      %a{href: "javascript:void(0)", "ng-click": "removeFromlist(list, $index, item)"}
                       Remover
-              .add-task.text-center
-                %a{"data-target" => "#myModal", "data-toggle" => "modal", "ng-click" => "models.addlist = list;task.status = listName;task.board_id = board; task.title=''"}
-                  %i.fa.fa-plus
-                  Add task
+              - if current_user
+                .add-task.text-center
+                  %a{"data-target" => "#myModal", "data-toggle" => "modal", "ng-click" => "board.addlist = list;task.status = listName;task.board_id = board.id; task.title=''"}
+                    %i.fa.fa-plus
+                    Add task
   #myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
     .modal-dialog
       .modal-content

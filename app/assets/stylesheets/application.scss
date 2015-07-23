@@ -11,7 +11,8 @@
  * file per style scope.
  *
  *= require bootstrap
- *= require bootstrap-toggle/bootstrap-toggle.min
+ *= require angular-toggle-switch/angular-toggle-switch-bootstrap-3
+ *= require angular-xeditable
  *= require fontawesome
  *= require_self
  */

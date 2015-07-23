@@ -39,7 +39,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-fontawesome'
   gem 'rails-assets-routerrouter'
   gem 'rails-assets-angular'
-  gem 'rails-assets-bootstrap-toggle'
+  gem 'rails-assets-JumpLink--angular-toggle-switch'
+  gem 'rails-assets-angular-xeditable'
 end
 
 # User authentication

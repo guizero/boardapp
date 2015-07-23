@@ -1,5 +1,4 @@
 class BoardsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_board, except: ['create']
 
   def create
@@ -28,11 +27,33 @@ class BoardsController < ApplicationController
     end
   end
 
+  def update
+    @board.assign_attributes(board_params)
+    respond_to do |format|   
+      if @board.save
+        format.json {render json: @board}
+      else
+        format.json {render json: @board.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
+  def external
+    render 'boards/show'
+  end
+
   private
 
   def set_board
-    @board = current_user.boards.find_by_id(params[:id])
+    @board = Board.find_by_id(params[:id])
     redirect_to(dashboard_path, :notice => 'The board you are looking for was not found') unless @board
+    if @board.private
+      if current_user
+        @board = current_user.boards.find_by_id(params[:id]) if @board.private
+      else
+        redirect_to(root_path, :notice => 'This is a private board and you cannot access it')
+      end
+    end  
   end
 
   def board_params

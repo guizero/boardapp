@@ -5,7 +5,7 @@ angular.module('app.boardApp').controller "BoardCtrl", [
     $http.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
 
     # The selected item will be stored in this var
-    $scope.models =
+    $scope.board =
       selected: null
 
     $scope.task =
@@ -13,14 +13,13 @@ angular.module('app.boardApp').controller "BoardCtrl", [
 
     # Get the list from the server
     $http.get('/boards/'+$('.ng-scope').data('boardid')+'.json').success((data, status, headers, config) ->
-      $scope.board = data.id
-      $scope.models.lists = data.tasks
+      $scope.board = data
       return
     )
 
     $scope.createTask = (task) ->
       $http.post('/tasks.json', {task: task}).success((data, status, headers, config) ->
-        $scope.models.lists[data.status].items.push(data)
+        $scope.board.tasks[data.status].items.push(data)
         $('#myModal').modal("toggle")
         return
       )
@@ -38,5 +37,11 @@ angular.module('app.boardApp').controller "BoardCtrl", [
       ).error((data) ->
         return false
       )
-      
+
+    $scope.updateBoard = () ->
+      $http.put('/boards/'+$scope.board.id+'.json', {board: $scope.board}).success((data, status, headers, config) ->
+      ).error((data) ->
+        return false
+      )
+            
 ]

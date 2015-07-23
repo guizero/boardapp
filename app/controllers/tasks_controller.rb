@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
   before_action :require_permission
 
   def create
