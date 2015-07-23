@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :tasks
   end
   resources :boards, only: ['show']
-  get 'boards/view/:id' => 'boards#external'
+  get 'boards/view/:verificator' => 'boards#external'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

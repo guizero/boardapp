@@ -13,6 +13,10 @@
           - if current_user
             .content
               %toggle-switch.switch-small{"ng-model" => "board.private", "off-label" => "Public", "on-label" => "Private", "ng-change" => "updateBoard()"}
+              %span{"ng-show" => "board.private === false"}
+                %i.fa.fa-link
+                =t('.share_link')
+                = @sharelink
     .row.boardAngular
       .col-lg-12.board
         .row

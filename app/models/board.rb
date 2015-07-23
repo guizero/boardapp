@@ -4,6 +4,8 @@ class Board < ActiveRecord::Base
 
   validates_presence_of :title
 
+  before_create :save_verificator
+
   def tasks_by_status
     tasks = {}
     [0,1,2,3].each do |status|
@@ -13,6 +15,12 @@ class Board < ActiveRecord::Base
       tasks[status]['items'] = self.tasks.by_status(status)
     end
     return tasks
+  end
+
+  private
+
+  def save_verificator
+    self.verificator = Digest::MD5.hexdigest(Figaro.env.boardapp_secret.to_s + self.id.to_s)
   end
 
 end

@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :set_board, except: ['create']
+  before_action :set_board_and_link, except: ['create']
 
   def create
     @board = Board.new(board_params)
@@ -44,8 +44,9 @@ class BoardsController < ApplicationController
 
   private
 
-  def set_board
+  def set_board_and_link
     @board = Board.find_by_id(params[:id])
+    @board = Board.find_by_verificator(params[:verificator]) if params[:verificator]
     redirect_to(dashboard_path, :notice => 'The board you are looking for was not found') unless @board
     if @board.private
       if current_user
@@ -53,7 +54,8 @@ class BoardsController < ApplicationController
       else
         redirect_to(root_path, :notice => 'This is a private board and you cannot access it')
       end
-    end  
+    end
+    @sharelink = "#{request.protocol + request.host_with_port}/boards/view/#{@board.verificator}"
   end
 
   def board_params

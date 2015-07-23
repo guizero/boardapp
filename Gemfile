@@ -61,6 +61,9 @@ gem 'acts_as_list'
 # Heroku to work properly
 gem 'rails_12factor', group: :production
 
+# Environmental variables
+gem 'figaro'
+
 
 
 group :development, :test do
