@@ -47,15 +47,15 @@ class BoardsController < ApplicationController
   def set_board_and_link
     @board = Board.find_by_id(params[:id])
     @board = Board.find_by_verificator(params[:verificator]) if params[:verificator]
-    redirect_to(dashboard_path, :notice => 'The board you are looking for was not found') unless @board
-    if @board.private
+    return redirect_to(dashboard_path, :notice => 'The board you are looking for was not found') unless @board
+    if @board || @board.private
       if current_user
         @board = current_user.boards.find_by_id(params[:id]) if @board.private
       else
         redirect_to(root_path, :notice => 'This is a private board and you cannot access it')
       end
     end
-    @sharelink = "#{request.protocol + request.host_with_port}/boards/view/#{@board.verificator}"
+    @sharelink = "#{request.protocol + request.host_with_port}/boards/view/#{@board.verificator}" if current_user
   end
 
   def board_params

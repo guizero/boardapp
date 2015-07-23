@@ -2,7 +2,7 @@ class Board < ActiveRecord::Base
   belongs_to :user
   has_many :tasks, -> {order(position: :asc)}, dependent: :destroy
 
-  validates_presence_of :title
+  validates_presence_of :title, :user
 
   before_create :save_verificator
 
