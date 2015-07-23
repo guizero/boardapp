@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   def create
     respond_to do |format|    
-      if @task.board.user == current_user && @task.save
+      if @task.save
         format.json {render json: @task}
       else
         format.json {render json: @task.errors, status: :unprocessable_entity}
@@ -41,6 +41,6 @@ class TasksController < ApplicationController
 
   def require_permission
     @task = Task.find_by_id(params[:id]) ? Task.find_by_id(params[:id]) : Task.new(task_params)
-    render json: 'User cannot access this task' unless @task.board.user == current_user
+    return render json: 'User cannot access this task' unless @task.board.user == current_user
   end
 end

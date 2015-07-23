@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
-  before_action :set_board_and_link, except: ['create']
+  before_action :set_board_and_link, except: ['create', 'external']
 
   def create
     @board = Board.new(board_params)
@@ -15,6 +15,7 @@ class BoardsController < ApplicationController
   end
 
   def show
+    @sharelink = "#{request.protocol + request.host_with_port}/boards/view/#{@board.verificator}"
   end
 
   def destroy
@@ -30,7 +31,7 @@ class BoardsController < ApplicationController
   def update
     @board.assign_attributes(board_params)
     respond_to do |format|   
-      if @board.save
+      if @board.user == current_user && @board.save
         format.json {render json: @board}
       else
         format.json {render json: @board.errors, status: :unprocessable_entity}
@@ -39,23 +40,21 @@ class BoardsController < ApplicationController
   end
 
   def external
-    render 'boards/show'
+    @board = Board.find_by_verificator(params[:verificator])
+    return redirect_to(root_path, :notice => "This is a private board and you cannot access it #{@board.user.name}") if @board.private && @board.user != current_user
+    if @board.user == current_user
+      redirect_to board_path(@board)
+    else
+      render 'show'
+    end
   end
 
   private
 
   def set_board_and_link
     @board = Board.find_by_id(params[:id])
-    @board = Board.find_by_verificator(params[:verificator]) if params[:verificator]
+    @board = current_user.boards.find_by_id(params[:id]) if @board && @board.private
     return redirect_to(dashboard_path, :notice => 'The board you are looking for was not found') unless @board
-    if @board || @board.private
-      if current_user
-        @board = current_user.boards.find_by_id(params[:id]) if @board.private
-      else
-        redirect_to(root_path, :notice => 'This is a private board and you cannot access it')
-      end
-    end
-    @sharelink = "#{request.protocol + request.host_with_port}/boards/view/#{@board.verificator}" if current_user
   end
 
   def board_params

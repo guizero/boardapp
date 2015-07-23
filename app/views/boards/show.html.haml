@@ -6,17 +6,23 @@
         .box
           .box-title.gray
             %span
-              %a{"editable-text" => "board.title", :href => "javascript:void(0)", "onaftersave" =>"updateBoard()"} {{board.title}}
-            - if current_user
+              - unless action_name == "external"
+                %a{"editable-text" => "board.title", :href => "javascript:void(0)", "onaftersave" =>"updateBoard()"} 
+                  {{board.title}}
+              - else
+                {{board.title}}
+            - unless action_name == "external"
               = link_to board_path(@board), method: :delete, id: 'delete-board' do
                 %i.fa.fa-trash-o
-          - if current_user
-            .content
+          .content
+            - unless action_name == "external"
               %toggle-switch.switch-small{"ng-model" => "board.private", "off-label" => "Public", "on-label" => "Private", "ng-change" => "updateBoard()"}
               %span{"ng-show" => "board.private === false"}
                 %i.fa.fa-link
                 =t('.share_link')
                 = @sharelink
+            - else
+              =t('.external_info', user: @board.user.name)
     .row.boardAngular
       .col-lg-12.board
         .row
@@ -26,14 +32,14 @@
               .box-title{class: "{{list.class}}"} 
                 %span {{list.name}}
               .content
-                %ul{"dnd-list" => "list.items", "dnd-drop"=>"dropCallback(index, item, listName)", "dnd-disable-if" => current_user ? '' : 'true === true'}
+                %ul{"dnd-list" => "list.items", "dnd-drop"=>"dropCallback(index, item, listName)", "dnd-disable-if" => action_name != "external" ? '' : 'true === true'}
                   %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "board.selected = item", "ng-class" => "{'selected': board.selected === item}", "ng-repeat" => "item in list.items"}
                     {{item.title}}
-                    - if current_user
+                    - unless action_name == "external"
                       %br
                       %a{href: "javascript:void(0)", "ng-click": "removeFromlist(list, $index, item)"}
                         =t('.remove')
-              - if current_user
+              - unless action_name == "external"
                 .add-task.text-center
                   %a.remove{"data-target" => "#myModal", "data-toggle" => "modal", "ng-click" => "board.addlist = list;task.status = listName;task.board_id = board.id; task.title=''"}
                     %i.fa.fa-plus

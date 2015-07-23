@@ -20,7 +20,7 @@ class Board < ActiveRecord::Base
   private
 
   def save_verificator
-    self.verificator = Digest::MD5.hexdigest(Figaro.env.boardapp_secret.to_s + self.id.to_s)
+    self.verificator = Digest::MD5.hexdigest(Figaro.env.boardapp_secret.to_s + self.user.email.to_s)
   end
 
 end

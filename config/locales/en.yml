@@ -24,3 +24,4 @@ en:
       remove: "Remove"
       title: "Title"
       add_task_to: "Add task to: "
+      external_info: "This board belongs to %{user} and you have access to it because you have the link. You cannot make any modifications to it."
