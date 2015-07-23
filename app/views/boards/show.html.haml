@@ -30,22 +30,25 @@
                   %li{"dnd-draggable" => "item", "dnd-effect-allowed" => "move", "dnd-moved" => "list.items.splice($index, 1)", "dnd-selected" => "board.selected = item", "ng-class" => "{'selected': board.selected === item}", "ng-repeat" => "item in list.items"}
                     {{item.title}}
                     - if current_user
+                      %br
                       %a{href: "javascript:void(0)", "ng-click": "removeFromlist(list, $index, item)"}
-                      Remover
+                        =t('.remove')
               - if current_user
                 .add-task.text-center
-                  %a{"data-target" => "#myModal", "data-toggle" => "modal", "ng-click" => "board.addlist = list;task.status = listName;task.board_id = board.id; task.title=''"}
+                  %a.remove{"data-target" => "#myModal", "data-toggle" => "modal", "ng-click" => "board.addlist = list;task.status = listName;task.board_id = board.id; task.title=''"}
                     %i.fa.fa-plus
-                    Add task
+                    = t('.add_task')
   #myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
     .modal-dialog
       .modal-content
         .modal-header
           %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-          %h4#myModalLabel.modal-title Add task to {{models.addlist.name}} list
+          %h4#myModalLabel.modal-title 
+            =t('.add_task_to') 
+            {{board.addlist.name}}
           %form.simple-form{:novalidate => ""}
             .modal-body      
-              Title:
+              =t('.title')
               %input{"ng-model" => "task.title", :type => "text", :id => "title"}          
             .modal-footer
               %input{"ng-click" => "createTask(task)", :type => "submit", :value => "Save"}/

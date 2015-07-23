@@ -28,7 +28,7 @@
                 = current_user.boards ? current_user.boards.count : 0
               .description 
                 // 
-                = t('boards')            
+                = t('.boards')            
   .container
     .row
       .col-lg-12
@@ -75,11 +75,11 @@
     .modal-content
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-        %h4#myModalLabel.modal-title Modal Form      
+        %h4#myModalLabel.modal-title= t('.create_board') 
       = form_for @newboard, :html => { :multipart => true } do |f|
         .modal-body
           = f.label(:title)
           = f.text_field(:title)
         .modal-footer
-          = f.submit "Create!", class: "button btn btn-primary"
+          = f.submit t(".create_board"), class: "button btn btn-primary"
            

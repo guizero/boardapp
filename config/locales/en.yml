@@ -18,3 +18,9 @@ en:
       no_boards_yet: "You have no boards yet, do you want to create one?"
       dashboard: "Dashboard"
       create_board: "Create board"
+  boards:
+    show:
+      add_task: "Add task"
+      remove: "Remove"
+      title: "Title"
+      add_task_to: "Add task to: "
