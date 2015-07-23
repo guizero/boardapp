@@ -3,7 +3,7 @@
   %head
     %meta{:charset => "utf-8"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %title BoardApp - Experimental
+    %title Rock Content - BoardApp
     = stylesheet_link_tag    'application', media: 'all'
     = csrf_meta_tags
 
@@ -15,7 +15,7 @@
       / Logo Start
       .logo-container
         = link_to dashboard_path do
-          %h1 BoardApp
+          = image_tag('logo.png')
       / Logo End
       / User Profile Start
       - if current_user
@@ -29,16 +29,13 @@
               %li
                 = link_to destroy_user_session_path, :method => :delete do
                   %i.fa.fa-power-off
-              %li
-                %a{:href => "profile.html"}
-                  %i.fa.fa-cog
         / User Profile End
         / Menu Start
         %ul.main-menu
           %li
             = link_to dashboard_path do
               %i.fa.fa-home
-              %span Dashboard
+              %span= t('.dashboard')
       / Left Sidebar End
     / Top Content Bar Start
     .top-bar

@@ -8,7 +8,7 @@
         .col-lg-6.col-sm-6
           .holder
             .inner
-              %h3 Dashboard
+              %h3= t('.dashboard')
               %h4
         / Right Side
         .col-lg-2.col-sm-2
@@ -24,7 +24,7 @@
           .holder
             .header-widget
               .icon
-                %i.fa.fa-dribbble
+                %i.fa.fa-list
                 = current_user.boards ? current_user.boards.count : 0
               .description 
                 // 
@@ -43,7 +43,7 @@
             %span= t('.my_boards')
             %a.btn.btn-lg.create_board{"data-target" => "#myModal", "data-toggle" => "modal"}
               %i.fa.fa-plus
-                Create board 
+                =t('.create_board') 
           / Content Start
           .content
             - if current_user.boards.exists?
@@ -56,11 +56,13 @@
                           .text
                             %div.text-center            
                               %strong= board.title
-                              %p Privado
-                        .counter-board.red 5
-                        .counter-board.yellow 7
-                        .counter-board.blue 2
-                        .counter-board.green 22
+                              %p
+                                %i.fa{class: board.private ? "fa-lock" : "fa-unlock"}
+                        - count = board.tasks_by_status
+                        .counter-board.red= count[0]['items'].length
+                        .counter-board.blue= count[1]['items'].length
+                        .counter-board.yellow= count[2]['items'].length
+                        .counter-board.green= count[3]['items'].length
                          
             - else
               %p
