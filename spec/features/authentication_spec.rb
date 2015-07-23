@@ -28,7 +28,7 @@ feature "Signing in" do
     expect(page).to have_content 'Signed in successfully.'
   end
 
-  scenario "with incorrect credentials", :js => :true do
+  scenario "with incorrect credentials" do
     visit new_user_session_path
 
     fill_in 'Email', with: 'wrong@email.com'
@@ -38,7 +38,7 @@ feature "Signing in" do
     expect(page).not_to have_content 'Signed in successfully.'
   end
 
-  scenario "with incorrect password", :js => :true do
+  scenario "with incorrect password" do
     visit new_user_session_path
 
     fill_in 'Email', with: user.email
