@@ -43,5 +43,4 @@ angular.module('app.boardApp').controller "BoardCtrl", [
       ).error((data) ->
         return false
       )
-            
 ]
