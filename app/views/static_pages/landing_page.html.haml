@@ -1,15 +1,15 @@
-- flash.each do |key, value|
-  %div{:class => "alert alert-#{key}"}
-    %a.close{"data-dismiss" => "alert", :href => "#"} ×
-    %ul
-      %li
-        = value
 .site-wrapper
   .site-wrapper-inner
     .cover-container
+      - flash.each do |key, value|
+        %div{:class => "alert alert-#{key}"}
+          %a.close{"data-dismiss" => "alert", :href => "#"} ×
+          %ul
+            %li
+              = value
       .masthead.clearfix
         .inner
-          %h3.masthead-brand= t('app_title')
+          = image_tag('logo.png', class: 'masthead-brand')
           %nav
             %ul.nav.masthead-nav
               %li.active
