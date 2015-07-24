@@ -7,3 +7,8 @@ pt:
         password: "Senha"
         email: "Email"
         password_confirmation: "Confirmar senha"
+      board/status:
+        "0": "A fazer"
+        "1": "Fazendo"
+        "2": "Em verificação"
+        "3": "Completo"

@@ -1,7 +1,6 @@
 pt:
   # General
   app_title: 'Board App'
-  boards: 'Boards'
   # Views
   static_pages:
     landing_page:
@@ -26,3 +25,6 @@ pt:
       title: "Título"
       add_task_to: "Adicionar tarefa para: "
       external_info: "Este board pertence a %{user} e você somente tem acesso a ele por que possui um link. Você não pode fazer nenhuma modificação."
+      private: "Privado"
+      public: "Publico"
+      share_link: "Link público: "

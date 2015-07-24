@@ -19,7 +19,7 @@ feature 'Boards' do
       fill_in 'Title', :with => 'Awesome board'
       find('#board_title').set("Awesome board")
     end
-    click_button "Create!"
+    click_button "Create board"
     expect(page).to have_content "Awesome board"
    
   end

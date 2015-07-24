@@ -16,7 +16,7 @@
                 %i.fa.fa-trash-o
           .content
             - unless action_name == "external"
-              %toggle-switch.switch-small{"ng-model" => "board.private", "off-label" => "Public", "on-label" => "Private", "ng-change" => "updateBoard()"}
+              %toggle-switch.switch-small{"ng-model" => "board.private", "off-label" => t('.public'), "on-label" => t('.private'), "ng-change" => "updateBoard()"}
               %span{"ng-show" => "board.private === false"}
                 %i.fa.fa-link
                 =t('.share_link')

@@ -7,3 +7,8 @@ en:
         password: "Password"
         email: "Email"
         password_confirmation: "Password confirmation"
+      board/status:
+        "0": "To-do"
+        "1": "In Progress"
+        "2": "To verify"
+        "3": "Done"
