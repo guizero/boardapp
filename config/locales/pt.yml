@@ -1,0 +1,28 @@
+pt:
+  # General
+  app_title: 'Board App'
+  boards: 'Boards'
+  # Views
+  static_pages:
+    landing_page:
+      description: 'Esta á uma landing page basica para o aplicativo experimental criado como um teste para verificação de habilidade em programação para a Rock Content. Esta landing page é temporária e será trocada no futuro'
+      sign_in: "Entrar"
+      sign_up: "Clique aqui para se cadastrar"
+      footer: "Aplicativo criado por Guilherme Araujo"
+      home: "Principal"
+  layouts:
+    application:
+      welcome: "Seja bem-vindo, %{user_name}"
+  dashboard:
+    index:
+      my_boards: "Meus boards"
+      no_boards_yet: "Você não possui nenhum board ainda, por que não cria um?"
+      dashboard: "Dashboard"
+      create_board: "Criar board"
+  boards:
+    show:
+      add_task: "Adicionar tarefa"
+      remove: "Remover"
+      title: "Título"
+      add_task_to: "Adicionar tarefa para: "
+      external_info: "Este board pertence a %{user} e você somente tem acesso a ele por que possui um link. Você não pode fazer nenhuma modificação."

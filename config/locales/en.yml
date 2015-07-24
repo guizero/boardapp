@@ -9,6 +9,7 @@ en:
       sign_in: "Sign in"
       sign_up: "Click Here to Sign Up"
       footer: "Application created by Guilherme Araujo"
+      home: "Home"
   layouts:
     application:
       welcome: "Welcome, %{user_name}"

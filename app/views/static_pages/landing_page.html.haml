@@ -13,7 +13,7 @@
           %nav
             %ul.nav.masthead-nav
               %li.active
-                %a{:href => "#"}= t('home')
+                %a{:href => "#"}= t('.home')
               %li
                 = link_to t('.sign_in'), new_user_session_path
       .inner.cover
@@ -21,6 +21,11 @@
         %p.lead= t('.description')
         %p.lead
           = link_to t('.sign_up'), new_user_registration_path, class: 'btn btn-lg btn-default'
+      .language
+        - if params[:locale] == 'pt' 
+          = link_to "English", "/?locale=en"
+        - else
+          = link_to "Português", "/?locale=pt"
       .mastfoot
         .inner
           %p
